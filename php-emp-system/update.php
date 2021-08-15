@@ -20,7 +20,7 @@
 <body>
     <table border="1">
         <tr>
-            <th colspan="4" align="center"><h1>Sagar Chavada</h1></th>
+            <th colspan="4" align="center"><h1>manage employee</h1></th>
         </tr>
         <tr>
             <td align="center"><a href="signup.php">add employee</a></td>
