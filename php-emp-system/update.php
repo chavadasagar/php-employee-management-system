@@ -35,40 +35,17 @@
         </tr>
         <tr>
             <td colspan="4">
-                <form action="action/update.php" method="POST" name="updateform">
+                <form action="action/update.php" method="post" name="updateform">
                     <center>
                         <table>
                             <tr>
                                 <td>employee id</td>
-                                <td><input type="text" name="id" id="no" onclick="sagar()"></td>
+                                <td><input type="text" name="id" id="no"></td>
                             </tr>
-                            <tr>
-                                <td>employee name</td>
-                                <td><input type="text" name="nm" id="nm"></td>
-                            </tr>
-                            <tr>
-                                <td>username</td>
-                                <td><input type="text" name="uid"></td>
-                            </tr>
-                            <tr>
-                                <td>password</td>
-                                <td><input type="password" name="pas"></td>
-                            </tr>
-                            <tr>
-                                <td>employee email</td>
-                                <td><input type="email" name="em"></td>
-                            </tr>
-                            <tr>
-                                <td>employee phone no</td>
-                                <td><input type="text" name="phno"></td>
-                            </tr>
-                            <tr>
-                                <td>employee city</td>
-                                <td><input type="text" name="ct"></td>
-                            </tr>
-                            <tr>
-                                <td align="center" colspan="2"><input type="submit" name="btn"></td>
-                            </tr>
+                            <div class="data">
+
+                            </div>
+                            
                         </table>
                     </center>
                 </form>
@@ -80,34 +57,24 @@
     </table>
 </body>
 </html>
-<?php 
-    // if(isset($_POST['id']))
-    // {
-    //     include("action/connection.php");
-    //     $id = $_POST['id'];
-    //     $q = mysqli_query($con,"select * from where id='$id'");
-        
-    //     while($r = mysqli_fetch_array($q))
-    //     {
-    //         $nm = $r['name'];
-    //     }
-    // }
 
-    include "action/function.php";
-?>
+<div class=".table"></div>
+
 <script src="js/jquery-3.6.0.min.js"></script>
-<!-- <script>
+<script>
     $(document).ready(function () {
         
+        $("#no").keyup(function(){
+            var id = $("#no").val();
+            $.ajax({
+                url:"show.php",
+                type:"POST",
+                data:{search:id},
+                success:function(data){
+                    $(".data").html(data);
+                }
+            });
+        });   
     });
-</script> -->
-<!-- 
-<script>
-    function sagar()
-    {
-        document.forms['updateform']['nm'].value = <?php echo $id; ?>;
-    }
 </script>
- -->
-
 
